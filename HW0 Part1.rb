@@ -32,9 +32,9 @@ An empty array or single element array should both return false.
 def sum_to_n args, n
    return false if (args.empty? || args.size  == 1)
    #Couldn't use the ! operator to modify the the original array for some reason
-   array = args.sort.uniq
+   arr = args.sort.uniq
    while arr.length > 1
-      x = array.shift
+      x = arr.shift
       return true if arr.map{|i| i + x}.detect{|i| i==n}
    end
    return false
