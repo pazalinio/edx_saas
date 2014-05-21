@@ -6,27 +6,15 @@ Include the proper getters and setters for these attributes. Include a method pr
 =end
 
 class BookInStock
-
   def initialize(isbn, price)
 	isbn.empty? ? raise ArgumentError : @isbn = isbn
-	price <= 0 ?  raise ArgumentError : @price = price.gsub(/[^0-9.]/,'') to_f
+	price <= 0 ?  raise ArgumentError : @price = price
   end
 
-  attr_reader :isbn 	# I don't think we should be able to edit the ISBN
-  attr_accessor :price	# The price should be read/write
+  attr_accessor :price, :isbn	
   
   def price_as_string(isbn)
 	#returns the price of the book with a leading dollar sign and trailing zeros, that is, a price of 20 should display as "$20.00" and a price of 33.8 should display as "$33.80"
-	puts if (@isbn != isbn) ? "Incorrect ISBN" : 
-	
+	"$%.2f" %(price)
   end
-  
-end
-
-my_account = Account.new("Eric", 1_000_000)
-my_account.withdraw(11, 500_000)
-my_account.display_balance(1234)
-my_account.withdraw(1234, 500_000)
-my_account.display_balance(1234)
-
 end
