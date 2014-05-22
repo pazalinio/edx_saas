@@ -6,15 +6,18 @@ Include the proper getters and setters for these attributes. Include a method pr
 =end
 
 class BookInStock
-  def initialize(isbn, price)
-	isbn.empty? ? raise ArgumentError : @isbn = isbn
-	price <= 0 ?  raise ArgumentError : @price = price
-  end
 
-  attr_accessor :price, :isbn	
-  
-  def price_as_string(isbn)
-	#returns the price of the book with a leading dollar sign and trailing zeros, that is, a price of 20 should display as "$20.00" and a price of 33.8 should display as "$33.80"
-	"$%.2f" %(price)
-  end
+	attr_accessor :isbn, :price
+
+	def initialize(isbn, price)
+		@isbn = isbn
+		@price = price
+		raise ArgumentError, 'there has to be an isbn number' if isbn.empty?
+		raise ArgumentError, 'surely the book needs a price as well' if price <=0
+	end
+ 
+	def price_as_string
+		"$%.2f" %(price) 
+	end
+
 end
