@@ -17,7 +17,7 @@ For an empty array it should return zero. For an array with
 just one element, it should return that element.
 =end
 def max_2_sum args
-   args.empty? ? 0 : args.size == 1 ? args : args.sort.last(2).inject(:+)
+   args.empty? ? 0 : args.size == 1 ? args[0] : args.sort.last(2).inject(:+)
 end
 
 =begin
@@ -29,7 +29,7 @@ if any two distinct elements in the array of integers sum to n.
 An empty array or single element array should both return false. 
 =end
 
-def sum_to_n args, n
+def sum_to_n? args, n
    return false if (args.empty? || args.size  == 1)
    #Couldn't use the ! operator to modify the the original array for some reason
    arr = args.sort.uniq
