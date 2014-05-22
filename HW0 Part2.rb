@@ -5,7 +5,7 @@ name and returns the string "Hello, " concatenated with the name.
 =end
 
 def hello name
-	puts "Hello, #{name}" 
+	"Hello, #{name}" 
 end
 
 =begin
